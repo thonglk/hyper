@@ -1,0 +1,41 @@
+.ViewTitle {
+    > div {
+        flex: 0 0 auto;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        min-width: 300px;
+    }
+
+    > .add-buttons {
+        flex-direction: row;
+        min-height: 30px;
+        color: rgba(var(--body-color), 0.4);
+        width: 100%;
+        align-items: flex-start;
+        .Icon {
+            margin-left: 0.5em;
+        }
+        .Button {
+            display: none;
+        }
+        &.add-visible:hover {
+            .Button {
+                display: flex;
+            }
+        }
+    }
+
+    .BlockIconSelector {
+        margin-right: 10px;
+    }
+
+    .Editable {
+        margin-bottom: 0px;
+        flex-grow: 1;
+    }
+
+    > .description > * {
+        flex-grow: 1;
+    }
+}
