@@ -78,7 +78,7 @@ const SidebarUserMenu = React.memo((props: Props) => {
 
                                     <Menu.Text
                                         id='about'
-                                        name={intl.formatMessage({id: 'Sidebar.about', defaultMessage: 'About Focalboard'})}
+                                        name={intl.formatMessage({id: 'Sidebar.about', defaultMessage: 'About Hyper'})}
                                         onClick={async () => {
                                             window.open('https://www.focalboard.com?utm_source=webapp', '_blank')
 

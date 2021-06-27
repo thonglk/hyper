@@ -94,7 +94,7 @@ class BoardPage extends React.Component<Props, State> {
                 }
                 document.title = title
             } else {
-                document.title = 'Focalboard'
+                document.title = 'Hyper'
             }
         }
         if (this.state.workspace?.id !== prevState.workspace?.id) {
