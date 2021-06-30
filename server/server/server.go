@@ -142,6 +142,7 @@ func New(cfg *config.Configuration, singleUserToken string, logger *mlog.Logger)
 	focalboardAPI.RegisterAdminRoutes(localRouter)
 
 	// Init workspace
+
 	if _, err = app.GetRootWorkspace(); err != nil {
 		logger.Error("Unable to get root workspace", mlog.Err(err))
 		return nil, err

@@ -32,6 +32,9 @@ const App = React.memo((): JSX.Element => {
         client.getMe().then((loadedUser?: IUser) => {
             setUser(loadedUser)
             setInitialLoad(true)
+            if (loadedUser?.auth_data) {
+                localStorage.setItem('workspaceId', loadedUser.auth_data)
+            }
         })
     }, [])
 
@@ -92,10 +95,20 @@ const App = React.memo((): JSX.Element => {
                                     )
                                 }}
                             />
-                            <Route path='/'>
-                                {initialLoad && !user && <Redirect to='/login'/>}
-                                <BoardPage/>
-                            </Route>
+                            <Route
+                                path='/'
+                                render={() => {
+                                    if (initialLoad && !user) {
+                                        return <Redirect to='/login'/>
+                                    } else if (user) {
+                                        Utils.log(`user: ${user.auth_data}`)
+
+                                        const workspaceUrl = `/workspace/${encodeURIComponent(user.auth_data)}`
+                                        return (<Redirect to={workspaceUrl}/>)
+                                    }
+                                    return null
+                                }}
+                            />
                         </Switch>
                     </div>
                 </div>
