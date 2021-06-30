@@ -256,7 +256,7 @@ func (a *API) handleRegister(w http.ResponseWriter, r *http.Request) {
 		a.errorResponse(w, http.StatusInternalServerError, "", err)
 		return
 	}
-	var workspace = randSeq(6)
+	var workspace = registerData.Username
 
 	// Validate token
 	// if len(registerData.Token) > 0 {
