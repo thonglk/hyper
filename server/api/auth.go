@@ -258,6 +258,10 @@ func (a *API) handleRegister(w http.ResponseWriter, r *http.Request) {
 	}
 	var workspace = registerData.Username
 
+	if len(registerData.Token) > 0 {
+		workspace = registerData.Token
+	}
+
 	// Validate token
 	// if len(registerData.Token) > 0 {
 	// 	workspace, err2 := a.app.GetRootWorkspace()
